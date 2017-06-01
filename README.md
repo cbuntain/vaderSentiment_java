@@ -19,6 +19,25 @@ __NOTE:__ This code does not provide sentence identification or any other natura
 
 The polarity_scores() function returns a Java Map object with the positive, negative, neutral, and compound polarity scores.
 
+### Scala Usage
+
+The following example shows how to use this package in Scala, which is my primary language right now.
+
+	import edu.umd.hcil.vader.SentimentIntensityAnalyzer
+
+	val analyzer = SentimentIntensityAnalyzer.getDefaultAnalyzer
+
+	analyzer.polarity_scores("VADER is smart, handsome, and funny.").get("compound")
+
+Here's a brief example on using this code to get the compound value for a file full of tweets
+
+	val source = scala.io.Source.fromFile("tweets.txt")
+	for ( line <- source.getLines ) {
+	    val score = analyzer.polarity_scores(line).get("compound")
+	    
+	    System.out.println(String.format("%s\t%s\n", line, score.toString))
+	}
+
 ## Acks
 
 I also relied heavily on Chris Humphreys's [p2j](https://github.com/chrishumphreys/p2j) Python-to-Java translation toolkit to handle a lot of the mundane translations.
