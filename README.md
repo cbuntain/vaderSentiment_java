@@ -18,3 +18,7 @@ You can use this object and its polarity_scores() method to get the polarity sco
 __NOTE:__ This code does not provide sentence identification or any other natural language utilities.
 
 The polarity_scores() function returns a Java Map object with the positive, negative, neutral, and compound polarity scores.
+
+## Acks
+
+I also relied heavily on Chris Humphreys's [p2j](https://github.com/chrishumphreys/p2j) Python-to-Java translation toolkit to handle a lot of the mundane translations.
