@@ -260,27 +260,39 @@ public class SentimentIntensityAnalyzer { // Line 191
     }
     
     public double _idioms_check(double valence, List<String> words_and_emoticons, int i) {
-        String onezero = String.format("%s %s",
-                words_and_emoticons.get((i-1)),
-                words_and_emoticons.get(i)).toLowerCase(); // Line 311
+        String onezero = new StringBuilder()
+                .append(words_and_emoticons.get((i-1)))
+                .append(" ")
+                .append(words_and_emoticons.get(i))
+                .toString().toLowerCase(); // Line 311
 
-        String twoonezero = String.format("%s %s %s",
-                words_and_emoticons.get((i-2)),
-                words_and_emoticons.get((i-1)),
-                words_and_emoticons.get(i).toLowerCase()); // Line 313
+        String twoonezero = new StringBuilder()
+                .append(words_and_emoticons.get((i-2)))
+                .append(" ")
+                .append(words_and_emoticons.get((i-1)))
+                .append(" ")
+                .append(words_and_emoticons.get(i))
+                .toString().toLowerCase(); // Line 313
 
-        String twoone = String.format("%s %s",
-                words_and_emoticons.get((i-2)),
-                words_and_emoticons.get((i-1))).toLowerCase(); // Line 316
+        String twoone = new StringBuilder()
+                .append(words_and_emoticons.get((i-2)))
+                .append(" ")
+                .append(words_and_emoticons.get((i-1)))
+                .toString().toLowerCase(); // Line 316
 
-        String threetwoone = String.format("%s %s %s",
-                words_and_emoticons.get((i-3)),
-                words_and_emoticons.get((i-2)),
-                words_and_emoticons.get((i-1))).toLowerCase(); // Line 318
+        String threetwoone = new StringBuilder()
+                .append(words_and_emoticons.get((i-3)))
+                .append(" ")
+                .append(words_and_emoticons.get((i-2)))
+                .append(" ")
+                .append(words_and_emoticons.get((i-1)))
+                .toString().toLowerCase(); // Line 318
 
-        String threetwo = String.format("%s %s",
-                words_and_emoticons.get((i-3)),
-                words_and_emoticons.get((i-2))).toLowerCase(); // Line 321
+        String threetwo = new StringBuilder()
+                .append(words_and_emoticons.get((i-3)))
+                .append(" ")
+                .append(words_and_emoticons.get((i-2)))
+                .toString().toLowerCase(); // Line 321
 
         List<String> sequences = Arrays.asList(new String[] {onezero, twoonezero, twoone, threetwoone, threetwo}); // Line 323
 
@@ -293,18 +305,23 @@ public class SentimentIntensityAnalyzer { // Line 191
 
 
         if ((words_and_emoticons.size()-1)>i) { // Line 330
-            String zeroone = String.format("%s %s",
-                    words_and_emoticons.get(i),
-                    words_and_emoticons.get((i+1))).toLowerCase(); // Line 331
+            String zeroone = new StringBuilder()
+                    .append(words_and_emoticons.get(i))
+                    .append(" ")
+                    .append(words_and_emoticons.get((i+1)))
+                    .toString().toLowerCase(); // Line 331
             if (SPECIAL_CASE_IDIOMS.containsKey(zeroone)) { // Line 332
                 valence = SPECIAL_CASE_IDIOMS.get(zeroone); // Line 333
             }
         }
         if ((words_and_emoticons.size()-1)>(i+1)) { // Line 334
-            String zeroonetwo = String.format("%s %s %s",
-                    words_and_emoticons.get(i),
-                    words_and_emoticons.get((i+1)),
-                    words_and_emoticons.get((i+2))).toLowerCase(); // Line 335
+            String zeroonetwo = new StringBuilder()
+                    .append(words_and_emoticons.get(i))
+                    .append(" ")
+                    .append(words_and_emoticons.get((i+1)))
+                    .append(" ")
+                    .append(words_and_emoticons.get((i+2)))
+                    .toString().toLowerCase(); // Line 335
             if (SPECIAL_CASE_IDIOMS.containsKey(zeroonetwo)) { // Line 336
                 valence = SPECIAL_CASE_IDIOMS.get(zeroonetwo); // Line 337
             }

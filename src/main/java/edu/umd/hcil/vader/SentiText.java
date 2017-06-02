@@ -126,8 +126,8 @@ public class SentiText { // Line 144
         Map<String, String> punctWords = new HashMap<>();
         for ( String word : words_only_set ) {
             for ( String punct : PUNC_LIST ) {
-                punctWords.put(String.format("%s%s", punct, word), word);
-                punctWords.put(String.format("%s%s", word, punct), word);
+                punctWords.put((punct + word), word);
+                punctWords.put((word + punct), word);
             }
         }
         
